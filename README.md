@@ -1,4 +1,4 @@
-# COVID19 - Exponential case growth analysis
+# COVID19 - R code download
 
 The way daily new COVID-19 case numbers are reported in the media can make it difficult to understand whether 
 we all these restrictions are working to get us back on top of the spread, or whether new cases continue to grow 
