@@ -13,7 +13,7 @@ pacman::p_load(pacman, dplyr, gganimate, ggthemes, gifski, lubridate,
 
 # Set Working Directory ####################################
 getwd()
-setwd("C:/Users/david/Desktop/David/PD & Personal/R data analysis/COVID-19") #*remember to change \ to /
+setwd("C:/")
 
 # LOAD DATA ################################################
 data <- import("cases_daily_state.csv") # from: https://infogram.com/1p0lp9vmnqd3n9te63x3q090ketnx57evn5?live
