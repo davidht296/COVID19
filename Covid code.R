@@ -13,7 +13,7 @@ pacman::p_load(pacman, dplyr, gganimate, ggthemes, gifski, lubridate,
 
 # Set Working Directory ####################################
 getwd()
-setwd("C:/")
+setwd("C:/Users/david/Desktop/David/PD & Personal/R data analysis/GitHub/COVID19") #*remember to change \ to /
 
 # LOAD DATA ################################################
 data <- import("cases_daily_state.csv") # from: https://infogram.com/1p0lp9vmnqd3n9te63x3q090ketnx57evn5?live
@@ -145,7 +145,7 @@ data2 %>%
   scale_x_log10() +
   scale_y_log10() +
   geom_abline(colour="#D23E4E", linetype = "longdash") +
-  labs(title = "COVID-19 Second Wave", subtitle = "Date: 11 August 2020",
+  labs(title = "COVID-19 Second Wave", subtitle = "Date: 14 August 2020",
        x = 'Cumulative cases (Since 6 June 2020)', 
        y = 'New cases (Past 7 days)',
        color = "State") +
