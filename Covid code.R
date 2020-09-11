@@ -71,8 +71,9 @@ plot1 <- data1 %>%
        x = 'Cumulative cases (Since 25 February 2020)', 
        y = 'New cases (Past 7 days)',
        color = "State") +
-  theme_gdocs() +
+  theme_few() +
   scale_color_manual(values = mycolors)
+  panel_border(remove = TRUE)
 
 ani1 <- plot1 + 
   transition_reveal(along = Date) + 
@@ -80,7 +81,21 @@ ani1 <- plot1 +
 
 n <- nrow(data1)/3
 animate(ani1, nframes = n, fps = 8, renderer = gifski_renderer())
-anim_save("Wave1.gif", ani1, nframe = n, fps = 6, renderer = gifski_renderer())
+anim_save("Wave1-ani.gif", ani1, nframe = n, fps = 6, renderer = gifski_renderer())
+
+# Static plot
+data1 %>%   
+  ggplot(.,aes(x=Cum, y=MS7, color=State)) +
+  geom_line(size = .8, alpha = .8) +
+  scale_x_log10() +
+  scale_y_log10() +
+  geom_abline(colour="#D23E4E", linetype = "longdash") +
+  labs(title = "COVID-19 First Wave", subtitle = "Date: 6 June 2020",
+       x = 'Cumulative cases (Since 25 February 2020)', 
+       y = 'New cases (Past 7 days)',
+       color = "State") +
+  theme_few() +
+  scale_color_manual(values = mycolors)
 
 ### SECOND WAVE #############################
 n <- nrow(data)
@@ -127,7 +142,7 @@ plot2 <- data2 %>%
        x = 'Cumulative cases (Since 6 June 2020)', 
        y = 'New cases (Past 7 days)',
        color = "State") +
-  theme_gdocs() +
+  theme_few() +
   scale_color_manual(values = mycolors)
 
 ani2 <- plot2 + 
@@ -136,7 +151,7 @@ ani2 <- plot2 +
 
 n <- nrow(data2)/3
 animate(ani2, nframes = n, fps = 6, renderer = gifski_renderer())
-anim_save("Wave2.gif", ani2, nframe = n, fps = 6, renderer = gifski_renderer())
+anim_save("Wave2-ani.gif", ani2, nframe = n, fps = 6, renderer = gifski_renderer())
 
 # Static plot
 data2 %>%   
@@ -145,11 +160,11 @@ data2 %>%
   scale_x_log10() +
   scale_y_log10() +
   geom_abline(colour="#D23E4E", linetype = "longdash") +
-  labs(title = "COVID-19 Second Wave", subtitle = "Date: 14 August 2020",
+  labs(title = "COVID-19 Second Wave", subtitle = "Date: 26 August 2020",
        x = 'Cumulative cases (Since 6 June 2020)', 
        y = 'New cases (Past 7 days)',
        color = "State") +
-  theme_gdocs() +
+  theme_few() +
   scale_color_manual(values = mycolors)
 
 # CLEAN UP #################################################
